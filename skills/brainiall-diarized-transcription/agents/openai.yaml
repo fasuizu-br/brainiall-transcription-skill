@@ -1,0 +1,4 @@
+interface:
+  display_name: "BRAINIALL Diarized Transcription"
+  short_description: "Transcribe PT-BR and Spanish with speaker labels"
+  default_prompt: "Use $brainiall-diarized-transcription to transcribe an authorized local recording into JSON, SRT, and VTT."
