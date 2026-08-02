@@ -79,6 +79,13 @@ pilots, and Asana/Linear/Google Workspace workflow fixtures. They are
 permission-first research assets; no listing, install, approval, partnership
 or revenue is implied without a separate receipt.
 
+## C110 B2B demand fixtures
+
+The `integrations/c110/` notes cover Teams call notes, a HubSpot RevOps
+handoff, and a WordPress caption workflow. They are public, permission-first
+fixtures: no marketplace submission, tenant install, partnership, or revenue
+is implied without a separate receipt.
+
 ## C107 demand-capture blueprints
 
 The `integrations/c107/` notes cover registry/package preflights, Obsidian and
