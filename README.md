@@ -72,6 +72,13 @@ Indie Hackers, Medium, GitHub Discussions, Docker Hub, RapidAPI, and
 alternative storefront preflights. They are research and opt-in recipes, not
 claims of publication, approval, installs, partnership, or revenue.
 
+## C108 demand-capture blueprints
+
+The `integrations/c108/` notes cover app marketplaces, ecommerce caption
+pilots, and Asana/Linear/Google Workspace workflow fixtures. They are
+permission-first research assets; no listing, install, approval, partnership
+or revenue is implied without a separate receipt.
+
 ## C107 demand-capture blueprints
 
 The `integrations/c107/` notes cover registry/package preflights, Obsidian and
