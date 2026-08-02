@@ -71,3 +71,10 @@ The `integrations/c106/` notes cover LinkedIn newsletters and Pages, Reddit,
 Indie Hackers, Medium, GitHub Discussions, Docker Hub, RapidAPI, and
 alternative storefront preflights. They are research and opt-in recipes, not
 claims of publication, approval, installs, partnership, or revenue.
+
+## C107 demand-capture blueprints
+
+The `integrations/c107/` notes cover registry/package preflights, Obsidian and
+Zotero knowledge workflows, Chrome/Google Play store gates, and creator caption
+QA. They are local, permission-first recipes; no listing, install, partnership,
+approval or revenue is implied without a separate receipt.
