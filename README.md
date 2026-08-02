@@ -50,3 +50,9 @@ API key, send media, or contact BRAINIALL.
 
 MIT licensed. BRAINIALL is responsible for this repository; it is not endorsed
 by Vercel or the maintainers of the skills CLI.
+
+## C104 integration blueprints
+
+Open VSX, JetBrains, editorial, and OSS partner notes live under
+`integrations/c104/`. They are public recipes and publication gates only; they
+do not claim marketplace approval, installation, partnership, or revenue.
