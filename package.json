@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test skills/brainiall-diarized-transcription/scripts/transcribe.test.mjs"
+    "test": "node --test skills/brainiall-diarized-transcription/scripts/transcribe.test.mjs skills/brainiall-diarized-transcription/scripts/caption-qa.test.mjs"
   },
   "engines": {
     "node": ">=22"
   }
-}
+}\n
