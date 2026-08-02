@@ -56,3 +56,11 @@ by Vercel or the maintainers of the skills CLI.
 Open VSX, JetBrains, editorial, and OSS partner notes live under
 `integrations/c104/`. They are public recipes and publication gates only; they
 do not claim marketplace approval, installation, partnership, or revenue.
+
+## C105 demand-capture blueprints
+
+The `integrations/c105/` notes cover npm, PyPI, Hugging Face Spaces, Apify
+Actors, referrals, and permission-first partner pilots. They are deliberately
+provider-neutral recipes: publication requires the corporate account and the
+surface's current review rules, while payment still requires a BRAINIALL
+checkout, settlement, and reconciliation receipt.
