@@ -64,3 +64,10 @@ Actors, referrals, and permission-first partner pilots. They are deliberately
 provider-neutral recipes: publication requires the corporate account and the
 surface's current review rules, while payment still requires a BRAINIALL
 checkout, settlement, and reconciliation receipt.
+
+## C106 demand-capture blueprints
+
+The `integrations/c106/` notes cover LinkedIn newsletters and Pages, Reddit,
+Indie Hackers, Medium, GitHub Discussions, Docker Hub, RapidAPI, and
+alternative storefront preflights. They are research and opt-in recipes, not
+claims of publication, approval, installs, partnership, or revenue.
