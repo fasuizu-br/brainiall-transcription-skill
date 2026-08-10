@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API de transcrição com diarização em português brasileiro | BRAINIALL</title>
+  <meta name="description" content="API de transcrição PT-BR com diarização, timestamps por palavra e JSON. Contrato OpenAPI público, exemplos seguros e uma única requisição autorizada.">
+  <link rel="canonical" href="https://fasuizu-br.github.io/brainiall-transcription-skill/pt-br/transcricao-com-diarizacao/">
+  <link rel="alternate" hreflang="pt-BR" href="https://fasuizu-br.github.io/brainiall-transcription-skill/pt-br/transcricao-com-diarizacao/">
+  <link rel="alternate" hreflang="es" href="https://fasuizu-br.github.io/brainiall-transcription-skill/es/transcripcion-con-diarizacion/">
+  <link rel="alternate" hreflang="x-default" href="https://fasuizu-br.github.io/brainiall-transcription-skill/">
+  <meta property="og:title" content="API de transcrição PT-BR com diarização">
+  <meta property="og:description" content="Contrato público e integração segura para áudio ou vídeo autorizado.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fasuizu-br.github.io/brainiall-transcription-skill/pt-br/transcricao-com-diarizacao/">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"BRAINIALL Diarized Transcription API","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"pt-BR","description":"API para transcrever gravações autorizadas em português brasileiro com timestamps e rótulos anônimos de falante.","url":"https://fasuizu-br.github.io/brainiall-transcription-skill/pt-br/transcricao-com-diarizacao/","publisher":{"@type":"Organization","name":"BRAINIALL","url":"https://app.brainiall.com"}}
+  </script>
+  <style>
+    :root{color-scheme:dark;--bg:#07111f;--panel:#0d1b2d;--text:#edf5ff;--muted:#adbbcc;--line:#28405d;--accent:#65e7c4}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 4%,#12384a 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,sans-serif}.wrap{width:min(980px,calc(100% - 40px));margin:auto}nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:850;letter-spacing:.09em;color:inherit;text-decoration:none}.lang a{color:var(--muted);margin-left:14px}.hero{padding:70px 0 42px}.eyebrow{color:var(--accent);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem}h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1;letter-spacing:-.05em;max-width:900px;margin:18px 0}.lede{font-size:1.2rem;line-height:1.65;color:var(--muted);max-width:760px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0}.button{padding:14px 18px;border-radius:10px;border:1px solid var(--line);font-weight:800;text-decoration:none;color:inherit}.primary{background:var(--accent);border-color:var(--accent);color:#05231d}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:38px 0}.card,.section{background:rgba(13,27,45,.82);border:1px solid var(--line);border-radius:16px;padding:24px}.card p,.section p,.section li{color:var(--muted);line-height:1.65}.section{margin:18px 0}.section h2{margin-top:0;font-size:1.65rem}code{color:#b8f5e5}footer{padding:38px 0;color:var(--muted)}@media(max-width:720px){.grid{grid-template-columns:1fr}.hero{padding-top:44px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav><a class="brand" href="../../">BRAINIALL</a><div class="lang"><span>PT-BR</span><a href="../../es/transcripcion-con-diarizacion/">Español</a></div></nav>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">API de transcrição PT-BR</div>
+        <h1>Separe falantes sem perder os timestamps.</h1>
+        <p class="lede">Transcreva um áudio ou vídeo autorizado em português brasileiro e receba JSON com texto, timestamps por palavra e rótulos anônimos de falante. O contrato público descreve somente o endpoint verificado.</p>
+        <div class="actions">
+          <a class="button primary" href="https://app.brainiall.com/?utm_source=github_pages&amp;utm_medium=localized_landing&amp;utm_campaign=pt_br_diarization_c173">Criar conta BRAINIALL</a>
+          <a class="button" href="../../#reference">Ver referência OpenAPI</a>
+          <a class="button" href="https://github.com/fasuizu-br/brainiall-transcription-skill#copyable-quickstarts">Copiar quickstart seguro</a>
+        </div>
+      </section>
+      <section class="grid" aria-label="Capacidades verificadas">
+        <div class="card"><h2>Diarização</h2><p>Rótulos como <code>SPEAKER_00</code> marcam turnos de fala; não identificam pessoas.</p></div>
+        <div class="card"><h2>Timestamps</h2><p>Cada palavra retorna início e fim para revisão, legendas e busca interna.</p></div>
+        <div class="card"><h2>Integração</h2><p>Uma operação multipart em OpenAPI 3.1, com exemplos curl, Python e Node.</p></div>
+      </section>
+      <section class="section"><h2>Quando usar</h2><p>Times de produto, pesquisa, suporte ou conteúdo que já têm uma gravação permitida e precisam distinguir falantes, revisar trechos ou gerar SRT e WebVTT. Não use para identificar voz, vigiar pessoas ou processar uma gravação sem direitos, aviso ou consentimento aplicável.</p></section>
+      <section class="section"><h2>Como funciona</h2><ol><li>Confirme direitos, aviso ou consentimento antes de selecionar o arquivo.</li><li>Crie uma chave dedicada e confira preço e saldo atuais.</li><li>Envie uma única requisição com idioma <code>pt</code> e <code>diarize=true</code>.</li><li>Revise texto, tempos e turnos humanos antes do uso.</li></ol><p>A API é metered. Os clientes seguros não repetem automaticamente uma requisição ambígua, pois um reenvio pode gerar nova cobrança.</p></section>
+      <section class="section"><h2>Perguntas frequentes</h2><p><strong>Quais arquivos?</strong> Os exemplos aceitam arquivos locais regulares .mp3, .wav, .m4a, .mp4, .mpeg, .mpga, .webm e .ogg, limitados a 25 MB.</p><p><strong>A página envia meu áudio?</strong> Não. Esta landing e a referência são somente leitura. O envio ocorre apenas quando você executa conscientemente um cliente com sua chave.</p><p><strong>Há retry automático?</strong> Não nos clientes publicados. Verifique o uso da conta antes de decidir um reenvio manual.</p></section>
+    </main>
+    <footer>BRAINIALL · visita, cadastro, checkout ou pagamento pendente não são receita reconciliada.</footer>
+  </div>
+</body>
+</html>
