@@ -38,6 +38,12 @@ Import [`postman/BRAINIALL-Diarized-Transcription.postman_collection.json`](post
 
 The collection sends one request only and has no automatic retry. It exposes language, diarization, and output-format variables, and includes response checks for JSON plus word timestamps. A request may consume account credit; verify the current price and balance before sending it.
 
+## OpenAPI contract
+
+[`openapi/brainiall-diarized-transcription.openapi.json`](openapi/brainiall-diarized-transcription.openapi.json) is the canonical, machine-readable contract for the same multipart endpoint. Import it into Postman, Bruno, Insomnia, Swagger tooling, or an SDK generator. The document deliberately describes only the verified request and response fields; it does not claim OpenAI compatibility or expose an API key, file path, transcript, or account data.
+
+The OpenAPI file cannot enforce recording rights or speaker consent. The caller must perform that check before selecting a file or sending a request, and must not automatically retry an ambiguous metered upload.
+
 ## Safety boundaries
 
 - One explicit local regular file; no remote URL, directory, glob, or symlink.
@@ -52,6 +58,7 @@ The collection sends one request only and has no automatic retry. It exposes lan
 ```bash
 npm test
 node scripts/validate-postman.mjs
+node scripts/validate-openapi.mjs
 python3 /path/to/skill-creator/scripts/quick_validate.py \
   skills/brainiall-diarized-transcription
 ```
