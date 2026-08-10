@@ -7,5 +7,6 @@ One external metered endpoint for an explicitly authorized Brazilian Portuguese 
 - Safe Postman collection: https://github.com/fasuizu-br/brainiall-transcription-skill/blob/main/postman/BRAINIALL-Diarized-Transcription.postman_collection.json
 - Agent Skill: https://github.com/fasuizu-br/brainiall-transcription-skill/tree/main/skills/brainiall-diarized-transcription
 - Account and current terms: https://app.brainiall.com/?utm_source=github&utm_medium=llms_txt&utm_campaign=diarized_transcription
+- Free SRT/WebVTT QA GitHub Action: https://fasuizu-br.github.io/brainiall-transcription-skill/github-action-caption-qa/
 
 Safety: verify recording rights and any required speaker notice or consent before selecting a file. Use a dedicated revocable API key. Confirm price and balance. Send one request only; do not automatically retry an ambiguous metered upload. Human review is required. Speaker labels are anonymous turns, not verified identities.

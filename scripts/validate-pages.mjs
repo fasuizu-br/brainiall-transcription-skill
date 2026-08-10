@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
-const [html, ptBrHtml, esHtml, robots, sitemap, hostedSpec, canonicalSpec] = await Promise.all([
+const [html, ptBrHtml, esHtml, captionQaHtml, robots, sitemap, hostedSpec, canonicalSpec] = await Promise.all([
   readFile(new URL('../docs/index.html', import.meta.url), 'utf8'),
   readFile(new URL('../docs/pt-br/transcricao-com-diarizacao/index.html', import.meta.url), 'utf8'),
   readFile(new URL('../docs/es/transcripcion-con-diarizacion/index.html', import.meta.url), 'utf8'),
+  readFile(new URL('../docs/github-action-caption-qa/index.html', import.meta.url), 'utf8'),
   readFile(new URL('../docs/robots.txt', import.meta.url), 'utf8'),
   readFile(new URL('../docs/sitemap.xml', import.meta.url), 'utf8'),
   readFile(new URL('../docs/brainiall-diarized-transcription.openapi.json', import.meta.url), 'utf8'),
@@ -25,7 +26,7 @@ const structuredData = html.match(/<script type="application\/ld\+json">([\s\S]*
 assert.ok(structuredData, 'Pages HTML is missing JSON-LD');
 assert.equal(JSON.parse(structuredData)['@type'], 'SoftwareApplication');
 assert.ok(robots.includes('Allow: /') && robots.includes('sitemap.xml'));
-assert.equal((sitemap.match(/<url>/gu) ?? []).length, 6);
+assert.equal((sitemap.match(/<url>/gu) ?? []).length, 7);
 
 for (const [name, localized, lang, canonical, campaign] of [
   ['PT-BR', ptBrHtml, 'pt-BR', '/pt-br/transcricao-com-diarizacao/', 'pt_br_diarization_c173'],
@@ -39,7 +40,15 @@ for (const [name, localized, lang, canonical, campaign] of [
   assert.doesNotMatch(localized, /sk-[A-Za-z0-9_-]{12,}|BRAINIALL_API_KEY\s*=\s*\S+/u, `${name} page appears to contain a credential`);
 }
 
-for (const [name, text] of [['HTML', html], ['PT-BR HTML', ptBrHtml], ['Spanish HTML', esHtml], ['robots', robots], ['sitemap', sitemap]]) {
+for (const marker of [
+  '<html lang="en">',
+  '/github-action-caption-qa/',
+  'caption_qa_c174',
+  'fasuizu-br/brainiall-caption-qa-action@v1.2.0',
+  'isAccessibleForFree',
+]) assert.ok(captionQaHtml.includes(marker), `Caption QA page is missing ${marker}`);
+
+for (const [name, text] of [['HTML', html], ['PT-BR HTML', ptBrHtml], ['Spanish HTML', esHtml], ['Caption QA HTML', captionQaHtml], ['robots', robots], ['sitemap', sitemap]]) {
   assert.doesNotMatch(text, /sk-[A-Za-z0-9_-]{12,}|BRAINIALL_API_KEY\s*=\s*\S+/u, `${name} appears to contain a credential`);
 }
 
