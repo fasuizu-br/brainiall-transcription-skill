@@ -43,8 +43,8 @@ for (const [name, localized, lang, canonical, campaign] of [
 for (const marker of [
   '<html lang="en">',
   '/github-action-caption-qa/',
-  'caption_qa_c174',
-  'fasuizu-br/brainiall-caption-qa-action@v1.2.0',
+  'caption_qa_c175',
+  'fasuizu-br/brainiall-caption-qa-action@v1.3.0',
   'isAccessibleForFree',
 ]) assert.ok(captionQaHtml.includes(marker), `Caption QA page is missing ${marker}`);
 
