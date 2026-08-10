@@ -26,17 +26,17 @@
         <h1>Catch broken captions before they ship.</h1>
         <p class="lede">Validate SRT and WebVTT structure in pull requests: UTF-8, timing syntax, reversed cues, overlaps and missing WebVTT headers. Files stay on the GitHub runner and the action requires no key.</p>
         <div class="actions">
-          <a class="button primary" href="https://github.com/fasuizu-br/brainiall-caption-qa-action?utm_source=github_pages&amp;utm_medium=product_landing&amp;utm_campaign=caption_qa_c174">Install the free action</a>
-          <a class="button" href="https://github.com/fasuizu-br/brainiall-caption-qa-action/releases/tag/v1.2.0">View v1.2.0</a>
+          <a class="button primary" href="https://github.com/fasuizu-br/brainiall-caption-qa-action?utm_source=github_pages&amp;utm_medium=product_landing&amp;utm_campaign=caption_qa_c175">Install the free action</a>
+          <a class="button" href="https://github.com/fasuizu-br/brainiall-caption-qa-action/releases/tag/v1.3.0">View v1.3.0</a>
         </div>
       </section>
       <section class="grid" aria-label="Verified capabilities">
         <div class="card"><h2>Private by default</h2><p>Local caption files are never uploaded by the action.</p></div>
         <div class="card"><h2>Deterministic</h2><p>The same file produces the same structural result and JSON report.</p></div>
-        <div class="card"><h2>PR-ready</h2><p>Malformed captions fail the job with file and line annotations.</p></div>
+        <div class="card"><h2>PR-ready</h2><p>Malformed captions fail the job while still publishing outputs, file-line annotations and a bounded job summary.</p></div>
       </section>
       <section class="section"><h2>Copy the workflow</h2><pre><code>- uses: actions/checkout@v4
-- uses: fasuizu-br/brainiall-caption-qa-action@v1.2.0
+- uses: fasuizu-br/brainiall-caption-qa-action@v1.3.0
   with:
     path: captions
     report: artifacts/caption-qa-report.json</code></pre></section>
