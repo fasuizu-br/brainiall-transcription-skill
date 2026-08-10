@@ -42,6 +42,8 @@ The collection sends one request only and has no automatic retry. It exposes lan
 
 [`openapi/brainiall-diarized-transcription.openapi.json`](openapi/brainiall-diarized-transcription.openapi.json) is the canonical, machine-readable contract for the same multipart endpoint. Import it into Postman, Bruno, Insomnia, Swagger tooling, or an SDK generator. The document deliberately describes only the verified request and response fields; it does not claim OpenAI compatibility or expose an API key, file path, transcript, or account data.
 
+Read the hosted, search-indexable [BRAINIALL API reference](https://fasuizu-br.github.io/brainiall-transcription-skill/) when you want the contract rendered before importing it. The reference is read-only: it does not send media, store a key, or automatically retry a request.
+
 The OpenAPI file cannot enforce recording rights or speaker consent. The caller must perform that check before selecting a file or sending a request, and must not automatically retry an ambiguous metered upload.
 
 ### Import into an API client
@@ -82,6 +84,7 @@ node scripts/validate-postman.mjs
 node scripts/validate-openapi.mjs
 node scripts/validate-integration-guide.mjs
 node scripts/validate-quickstarts.mjs
+node scripts/validate-pages.mjs
 python3 /path/to/skill-creator/scripts/quick_validate.py \
   skills/brainiall-diarized-transcription
 ```

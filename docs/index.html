@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BRAINIALL API — transcrição PT-BR e espanhol com diarização</title>
+  <meta name="description" content="Referência OpenAPI da BRAINIALL para transcrição autorizada em português brasileiro e espanhol, com diarização, timestamps e saída JSON.">
+  <link rel="canonical" href="https://fasuizu-br.github.io/brainiall-transcription-skill/">
+  <meta property="og:title" content="BRAINIALL Diarized Transcription API">
+  <meta property="og:description" content="OpenAPI, quickstarts e limites verificados para transcrição PT-BR e espanhol.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fasuizu-br.github.io/brainiall-transcription-skill/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BRAINIALL Diarized Transcription API",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "description": "API para transcrever uma gravação autorizada em português brasileiro ou espanhol com timestamps e rótulos anônimos de falante.",
+    "url": "https://fasuizu-br.github.io/brainiall-transcription-skill/",
+    "publisher": {"@type": "Organization", "name": "BRAINIALL", "url": "https://app.brainiall.com"}
+  }
+  </script>
+  <style>
+    :root { color-scheme: dark; --bg:#07111f; --panel:#0d1b2d; --text:#edf5ff; --muted:#a8b6c8; --line:#253a55; --accent:#65e7c4; --accent2:#82aaff; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--bg); color:var(--text); }
+    a { color:inherit; }
+    .hero { background:radial-gradient(circle at 76% 12%,rgba(101,231,196,.16),transparent 30%),linear-gradient(145deg,#07111f,#0b1a2b 55%,#0d2235); border-bottom:1px solid var(--line); }
+    .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; }
+    nav { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font-weight:800; letter-spacing:.08em; text-decoration:none; }
+    .navlinks { display:flex; gap:20px; color:var(--muted); font-size:.94rem; }
+    .navlinks a { text-decoration:none; }
+    .intro { padding:76px 0 72px; max-width:860px; }
+    .eyebrow { color:var(--accent); font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; }
+    h1 { margin:18px 0 18px; font-size:clamp(2.5rem,7vw,5.4rem); line-height:.98; letter-spacing:-.055em; }
+    .lede { max-width:720px; font-size:clamp(1.05rem,2vw,1.3rem); line-height:1.65; color:var(--muted); }
+    .chips { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0; }
+    .chip { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.025); color:#cbd8e8; font-size:.88rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 18px; border-radius:10px; font-weight:750; text-decoration:none; border:1px solid var(--line); }
+    .primary { color:#05231d; background:var(--accent); border-color:var(--accent); }
+    .secondary { background:#112238; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:46px; }
+    .card { padding:20px; border:1px solid var(--line); border-radius:14px; background:rgba(8,20,34,.72); }
+    .card strong { display:block; margin-bottom:8px; }
+    .card p { margin:0; color:var(--muted); line-height:1.55; font-size:.92rem; }
+    .reference-head { padding:54px 0 22px; background:#fff; color:#182335; }
+    .reference-head h2 { margin:0 0 8px; font-size:clamp(1.8rem,4vw,3rem); letter-spacing:-.035em; }
+    .reference-head p { margin:0; color:#526277; }
+    #redoc-container { min-height:80vh; background:#fff; }
+    footer { padding:32px 0; color:var(--muted); border-top:1px solid var(--line); }
+    footer .wrap { display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+    @media (max-width:760px) { .navlinks { display:none; } .intro { padding:52px 0; } .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <nav aria-label="Navegação principal">
+        <a class="brand" href="./">BRAINIALL</a>
+        <div class="navlinks">
+          <a href="#reference">Referência</a>
+          <a href="./API_CLIENT_IMPORTS.md">Importar</a>
+          <a href="./llms.txt">llms.txt</a>
+          <a href="https://github.com/fasuizu-br/brainiall-transcription-skill">GitHub</a>
+        </div>
+      </nav>
+      <section class="intro">
+        <div class="eyebrow">Diarized Transcription API</div>
+        <h1>Transcrição PT-BR e espanhol, pronta para integrar.</h1>
+        <p class="lede">Envie uma gravação explicitamente autorizada e receba JSON com timestamps por palavra e rótulos anônimos de falante. O contrato público descreve somente o endpoint e os campos verificados.</p>
+        <div class="chips" aria-label="Capacidades">
+          <span class="chip">Português brasileiro</span><span class="chip">Español</span><span class="chip">Speaker diarization</span><span class="chip">Word timestamps</span><span class="chip">OpenAPI 3.1</span><span class="chip">Curl · Python · Node</span>
+        </div>
+        <div class="actions">
+          <a class="button primary" href="https://app.brainiall.com/?utm_source=github_pages&amp;utm_medium=api_reference&amp;utm_campaign=diarized_transcription">Criar conta BRAINIALL</a>
+          <a class="button secondary" href="https://github.com/fasuizu-br/brainiall-transcription-skill#copyable-quickstarts">Ver quickstarts seguros</a>
+          <a class="button secondary" href="./brainiall-diarized-transcription.openapi.json" download>Baixar OpenAPI</a>
+        </div>
+        <div class="grid">
+          <div class="card"><strong>Uma operação</strong><p><code>POST /v1/whisper/transcribe</code>, multipart, com idioma <code>pt</code> ou <code>es</code> e diarização.</p></div>
+          <div class="card"><strong>Limites explícitos</strong><p>Arquivo local regular de até 25 MB nos clientes seguros; sem URL remota, symlink ou retry automático.</p></div>
+          <div class="card"><strong>Antes de enviar</strong><p>Confirme direitos, aviso ou consentimento aplicável, preço atual e saldo. Revise o resultado humano antes de usar.</p></div>
+        </div>
+      </section>
+    </div>
+  </header>
+  <section id="reference" class="reference-head">
+    <div class="wrap"><h2>Referência OpenAPI</h2><p>Esta página é somente leitura e não coleta chave, mídia ou transcrição.</p></div>
+  </section>
+  <main id="redoc-container" aria-label="Referência da API"></main>
+  <noscript><div class="wrap"><p>JavaScript está desativado. <a href="./brainiall-diarized-transcription.openapi.json">Leia o contrato OpenAPI diretamente.</a></p></div></noscript>
+  <footer><div class="wrap"><span>BRAINIALL · referência pública</span><span>Import, first value, checkout e pagamento pendente não são receita reconciliada.</span></div></footer>
+  <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+  <script>
+    Redoc.init('./brainiall-diarized-transcription.openapi.json', {hideDownloadButton:false, hideHostname:false, expandResponses:'200'}, document.getElementById('redoc-container'));
+  </script>
+</body>
+</html>

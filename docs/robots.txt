@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fasuizu-br.github.io/brainiall-transcription-skill/sitemap.xml
