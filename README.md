@@ -44,6 +44,12 @@ The collection sends one request only and has no automatic retry. It exposes lan
 
 The OpenAPI file cannot enforce recording rights or speaker consent. The caller must perform that check before selecting a file or sending a request, and must not automatically retry an ambiguous metered upload.
 
+### Import into an API client
+
+[Run the verified operation in Insomnia](https://app.insomnia.rest/run?operationId=transcribeAuthorizedRecording&specUrl=https%3A%2F%2Fraw.githubusercontent.com%2Ffasuizu-br%2Fbrainiall-transcription-skill%2Fmain%2Fopenapi%2Fbrainiall-diarized-transcription.openapi.json), or follow the dependency-free [client import guide](docs/API_CLIENT_IMPORTS.md) for Bruno, Hoppscotch, Yaak, Insomnia, and Kiota.
+
+Every route imports the same public contract. It does not include an API key, recording, transcript, or automatic retry. Add a dedicated key locally and choose media only after confirming rights and any required speaker notice or consent.
+
 ## Safety boundaries
 
 - One explicit local regular file; no remote URL, directory, glob, or symlink.
@@ -59,6 +65,7 @@ The OpenAPI file cannot enforce recording rights or speaker consent. The caller 
 npm test
 node scripts/validate-postman.mjs
 node scripts/validate-openapi.mjs
+node scripts/validate-integration-guide.mjs
 python3 /path/to/skill-creator/scripts/quick_validate.py \
   skills/brainiall-diarized-transcription
 ```
