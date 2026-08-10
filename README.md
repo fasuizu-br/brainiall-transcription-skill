@@ -50,6 +50,21 @@ The OpenAPI file cannot enforce recording rights or speaker consent. The caller 
 
 Every route imports the same public contract. It does not include an API key, recording, transcript, or automatic retry. Add a dedicated key locally and choose media only after confirming rights and any required speaker notice or consent.
 
+## Copyable quickstarts
+
+Three audited, single-send examples are available for teams that prefer code over an API client:
+
+- [`examples/curl/transcribe-once.sh`](examples/curl/transcribe-once.sh)
+- [`examples/python/transcribe_once.py`](examples/python/transcribe_once.py)
+- [`examples/javascript/transcribe-once.mjs`](examples/javascript/transcribe-once.mjs)
+
+All three require the exact environment gate
+`BRAINIALL_CONFIRM=I_CONFIRM_RIGHTS_AND_COST`, a dedicated
+`BRAINIALL_API_KEY`, one local regular media file, and an explicit `pt` or `es`
+language. They reject symlinks, files over 25 MB, existing output targets, and
+automatic retries. Review the current account price and balance before running
+any example because a successful upload may consume credit.
+
 ## Safety boundaries
 
 - One explicit local regular file; no remote URL, directory, glob, or symlink.
@@ -66,6 +81,7 @@ npm test
 node scripts/validate-postman.mjs
 node scripts/validate-openapi.mjs
 node scripts/validate-integration-guide.mjs
+node scripts/validate-quickstarts.mjs
 python3 /path/to/skill-creator/scripts/quick_validate.py \
   skills/brainiall-diarized-transcription
 ```
