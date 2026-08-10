@@ -28,6 +28,16 @@ node skills/brainiall-diarized-transcription/scripts/caption-qa.mjs reviewed.vtt
 
 It checks the WebVTT header, cue timing, overlap, empty text, and SRT indexes. It does not assess semantic accuracy, rights, accessibility conformance, or payment, and it never sends media to BRAINIALL.
 
+## Postman collection
+
+Import [`postman/BRAINIALL-Diarized-Transcription.postman_collection.json`](postman/BRAINIALL-Diarized-Transcription.postman_collection.json) to test the same hosted API without installing a client. Before the request can run, set:
+
+- `brainiall_api_key` as a secret collection variable;
+- `confirmed_rights_and_consent` to the exact value `I CONFIRM`;
+- the `audio` form-data field to one authorized local recording.
+
+The collection sends one request only and has no automatic retry. It exposes language, diarization, and output-format variables, and includes response checks for JSON plus word timestamps. A request may consume account credit; verify the current price and balance before sending it.
+
 ## Safety boundaries
 
 - One explicit local regular file; no remote URL, directory, glob, or symlink.
@@ -41,6 +51,7 @@ It checks the WebVTT header, cue timing, overlap, empty text, and SRT indexes. I
 
 ```bash
 npm test
+node scripts/validate-postman.mjs
 python3 /path/to/skill-creator/scripts/quick_validate.py \
   skills/brainiall-diarized-transcription
 ```

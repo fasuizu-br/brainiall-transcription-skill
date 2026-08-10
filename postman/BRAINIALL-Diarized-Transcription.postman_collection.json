@@ -1,0 +1,117 @@
+{
+  "info": {
+    "_postman_id": "126f17ea-8b4a-4cf5-a069-23dbcb553c08",
+    "name": "BRAINIALL Diarized Transcription API",
+    "description": "One explicitly authorized PT-BR or Spanish recording to speaker-labelled JSON with word timestamps. This request uses a metered external API. Review the current price and account balance before sending. The collection deliberately has no automatic retry.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://api.brainiall.com",
+      "type": "string"
+    },
+    {
+      "key": "brainiall_api_key",
+      "value": "",
+      "type": "secret"
+    },
+    {
+      "key": "language",
+      "value": "pt",
+      "type": "string"
+    },
+    {
+      "key": "diarize",
+      "value": "true",
+      "type": "string"
+    },
+    {
+      "key": "output_format",
+      "value": "json",
+      "type": "string"
+    },
+    {
+      "key": "confirmed_rights_and_consent",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Transcribe one authorized recording",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.collectionVariables.get('confirmed_rights_and_consent') !== 'I CONFIRM') {",
+              "  throw new Error('Set confirmed_rights_and_consent to I CONFIRM after verifying rights and required speaker consent.');",
+              "}",
+              "const language = pm.collectionVariables.get('language');",
+              "if (!['pt', 'es'].includes(language)) {",
+              "  throw new Error('language must be pt or es.');",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('response is successful JSON', function () {",
+              "  pm.response.to.have.status(200);",
+              "  pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+              "});",
+              "pm.test('response contains word timestamps', function () {",
+              "  const body = pm.response.json();",
+              "  pm.expect(body.words).to.be.an('array');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{brainiall_api_key}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "audio",
+              "type": "file",
+              "src": "",
+              "description": "Choose one authorized local recording. Do not commit a local path."
+            },
+            {
+              "key": "language",
+              "value": "{{language}}",
+              "type": "text"
+            },
+            {
+              "key": "diarize",
+              "value": "{{diarize}}",
+              "type": "text"
+            },
+            {
+              "key": "output_format",
+              "value": "{{output_format}}",
+              "type": "text"
+            }
+          ]
+        },
+        "url": "{{base_url}}/v1/whisper/transcribe",
+        "description": "Sends exactly one potentially metered request. Do not use Collection Runner retries. If the outcome is ambiguous, inspect account usage before considering a manual retry."
+      },
+      "response": []
+    }
+  ]
+}
