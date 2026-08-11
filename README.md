@@ -7,10 +7,20 @@ dependency-free Node.js 22 client.
 
 ## Install
 
+Install from reviewed source instead of executing an unpinned package runner:
+
 ```bash
-npx skills add fasuizu-br/brainiall-transcription-skill \
-  --skill brainiall-diarized-transcription
+git clone https://github.com/fasuizu-br/brainiall-transcription-skill.git
+cd brainiall-transcription-skill
+git rev-parse HEAD
+npm test
 ```
+
+Record the commit returned by `git rev-parse HEAD`, review the source, and then
+copy only `skills/brainiall-diarized-transcription/` into the skills directory
+documented by your agent host. This keeps the install path auditable and avoids
+executing a third-party installer. The skill itself never asks for a key in chat
+or in a command argument.
 
 The skill guides the agent through consent, local-file and size checks, a
 dedicated `BRAINIALL_API_KEY`, and a single non-retried API request. Create or
